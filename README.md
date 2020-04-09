@@ -68,7 +68,7 @@ interface SharedData {
 
 - `basePath` - path prefix that will be applied on every route `path` field in `routes` array. Can be with or without starting and ending `/` (`some/path`, `some/path/`, `/some/path` are all accepted). It will be also merged with parent node basePath.
 
-__Example__
+*Example*
 ```typescript
 const parent = createRouteNode({
     shared: { basePath: "parent/path" },
@@ -84,7 +84,7 @@ Child basePath will be `parent/path/child/path`. If parent also has an ancestor,
 
 - `meta` - meta data that will be applied on every route `meta` field in `routes` array only if no `meta` is defined.
 
-__Example__
+*Example*
 ```typescript
 const parent = createRouteNode({
     shared: { meta: { allow: true } },

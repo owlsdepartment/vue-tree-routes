@@ -136,7 +136,9 @@ const router = new Router({
 As mentioned earlier, if you are using TypeScript, you can define some project-specific fields, that are expected in `meta`, by using TypeScript module declaration:
 
 ```typescript
-declare module "@owlsdepartment/vue-tree-route" {
+import { _Meta } from "@owlsdepartment/vue-tree-routes/dist/types/types";
+
+declare module "@owlsdepartment/vue-tree-routes/dist/types/types" {
     export interface _Meta {
         // your meta declaration
     }

@@ -15,6 +15,8 @@ export interface RouteConfig extends VueRouteConfig {
     meta?: Meta;
 }
 
-export interface Meta {
+export interface Meta extends _Meta {
     [key: string]: any;
 }
+
+export interface _Meta {}

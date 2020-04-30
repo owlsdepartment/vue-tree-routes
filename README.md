@@ -131,20 +131,19 @@ const router = new Router({
 })
 ```
 
-### Overriding `Meta interface`
+### Overriding `Meta interface` (since v1.0.4)
 
 As mentioned earlier, if you are using TypeScript, you can define some project-specific fields, that are expected in `meta`, by using TypeScript module declaration:
 
 ```typescript
 declare module "@owlsdepartment/vue-tree-route" {
-    export interface Meta {
+    export interface _Meta {
         // your meta declaration
     }
 }
 ```
 
-By default, meta is an object with any keys and any values.
-
+By default, `Meta` is an object with any keys and any values, but it is extended from `_Meta` interface, thus allowing for declaring custom fields.
 
 ## Full example
 

@@ -1,6 +1,6 @@
 {
   "name": "@owlsdepartment/vue-tree-routes",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Small library to write Vue routes definition in a tree structure.",
   "main": "./dist/src/index.js",
   "types": "./dist/types/index.d.ts",

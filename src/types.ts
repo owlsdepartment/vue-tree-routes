@@ -11,6 +11,12 @@ export interface SharedData {
     meta?: Meta;
 }
 
+/**
+ * Zaktualizować to jako 2 nowe wersje:
+ *  - 1.1.0 - jako wsparcie <= Vue Router@3.3.2
+ *  - 1.1.1 - wsparcie >= VueRouter@3.3.3
+ */
+
 export interface RouteConfig extends VueRouteConfig {
     meta?: Meta;
 }

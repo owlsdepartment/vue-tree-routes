@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf ./dist",
-    "prepare": "install-peers && npm run test && npm run clean && npm run build",
+    "prepare": "npm run install-peers && npm run test && npm run clean && npm run build",
     "test": "jest",
     "install-peers": "install-peers -f"
   },

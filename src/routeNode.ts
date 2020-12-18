@@ -1,15 +1,15 @@
-import { RouteDefinition, RouteConfig, SharedData, Meta } from './types'
+import { RouteDefinition, RouteRecord, SharedData, Meta } from './types'
 import { isString } from './helpers'
 
 export interface RouteNodeParams {
     shared?: SharedData;
-    routes?: RouteConfig[];
+    routes?: RouteRecord[];
     children?: RouteNode[];
 }
 
 export class RouteNode implements RouteDefinition {
     shared: SharedData;
-    routes: RouteConfig[];
+    routes: RouteRecord[];
     children: RouteNode[];
     private merged: boolean = false;
 
@@ -19,7 +19,7 @@ export class RouteNode implements RouteDefinition {
         this.children = children;
     }
 
-    *[Symbol.iterator](): Generator<RouteConfig> {
+    *[Symbol.iterator](): Generator<RouteRecord> {
         const { basePath, meta } = this.shared;
 
         for (let route of this.routes) {
@@ -49,7 +49,7 @@ export class RouteNode implements RouteDefinition {
     }
 }
 
-function applyNewPath(route: RouteConfig, basePath?: string): void {
+function applyNewPath(route: RouteRecord, basePath?: string): void {
     const { path } = route;
 
     if (isString(path)) {
@@ -57,7 +57,7 @@ function applyNewPath(route: RouteConfig, basePath?: string): void {
     }
 }
 
-function applyNewMeta(route: RouteConfig, meta?: Meta): void {
+function applyNewMeta(route: RouteRecord, meta?: Meta): void {
     if (route.meta === undefined) {
         route.meta = { ...meta };
     }

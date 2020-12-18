@@ -1,8 +1,8 @@
-import { RouteConfig as VueRouteConfig } from 'vue-router'
+import { RouteRecordRaw as VueRouteRecord } from 'vue-router'
 
 export interface RouteDefinition {
     shared?: SharedData;
-    routes?: RouteConfig[];
+    routes?: RouteRecord[];
     children?: RouteDefinition[];
 }
 
@@ -11,7 +11,7 @@ export interface SharedData {
     meta?: Meta;
 }
 
-export type RouteConfig = { meta?: Meta; } & VueRouteConfig
+export type RouteRecord = { meta?: Meta; } & VueRouteRecord
 
 export interface Meta extends _Meta {
     [key: string]: any;

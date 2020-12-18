@@ -2,13 +2,23 @@
 Small library to write Vue routes definition in a tree structure.
 
 To add library to project
-```
+```properties
 npm install --save @owlsdepartment/vuex-typed
 
-// or if you use yarn
+# or if you use yarn
 
 yarn add @owlsdepartment/vuex-typed
 ```
+
+## Versioning
+
+Vue | Vue Router | Vue Tree Routes
+-- | -- | --
+^3.0.0 | ^4.0.0 | ^2.0.0
+^2.6.0 | ^3.1.6 | ^1.1.1
+
+If you're looking for older `README.md`:
+ - [1.1.1](https://github.com/owlsdepartment/vue-tree-routes/blob/33da77707f2d004ad77c283778a189a5df510ca2/README.md)
 
 ## Motivations
 
@@ -41,14 +51,14 @@ Function `createRouteNode` will accept children array, that don't have to be an 
 ```typescript
 interface RouteDefinition {
     shared?: SharedData;
-    routes?: RouteConfig[];
+    routes?: RouteRecord[];
     children?: RouteDefinition[];
 }
 ```
 
 #### Parameters - routes
 
-Accepts an array of route definitions. It is exctly the same like `RouteConfig` in `vue-router` with a small change for TypeScript users: field `meta` is typed with `Meta` interface, so you can override it with your own fields.
+Accepts an array of route definitions. It is exctly the same like `RouteRecordRaw` in `vue-router` with a small change for TypeScript users: field `meta` is typed with `Meta` interface, so you can override it with your own fields.
 More on that later.
 
 #### Parameters - children

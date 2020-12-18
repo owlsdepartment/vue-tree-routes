@@ -1,5 +1,5 @@
 import { RouteNode, RouteNodeParams } from '../src/routeNode'
-import { RouteConfig } from 'vue-router'
+import { RouteRecordRaw } from 'vue-router'
 import { Meta } from '../src/types'
 
 describe('RouteNode class', () => {
@@ -31,33 +31,36 @@ describe('RouteNode class', () => {
         })
 
         it('returns array with one item for one route and empty children', () => {
-            const node = new RouteNode({ routes: [{ name: 'test-route', path: '/path' }] })
+            const node = new RouteNode({ routes: [{ name: 'test-route', path: '/path', component: {} }] })
 
-            expect([...node]).toEqual([{ meta: {}, name: 'test-route', path: '/path' }])
+            expect([...node]).toEqual([{ meta: {}, name: 'test-route', path: '/path', component: {} }])
         })
 
         it('returns array with one item for one child and empty routes', () => {
             const node = new RouteNode({ children: [
-                new RouteNode({ routes: [{ name: 'test-route', path: '/path' }] })
+                new RouteNode({ routes: [{ name: 'test-route', path: '/path', component: {} }] })
             ]})
 
-            expect([...node]).toEqual([{ meta: {}, name: 'test-route', path: '/path' }])
+            expect([...node]).toEqual([{ meta: {}, name: 'test-route', path: '/path', component: {} }])
         })
 
         it('returns array with many routes fro many self routes and many children', () => {
             let children: RouteNode[] = []
             for (let i = 0; i < 3; i++) {
-                children.push(new RouteNode({ routes: [{ name: `child-route-${i}`, path: `/child-path-${i}` }] }))
+                children.push(new RouteNode({ routes: [{ name: `child-route-${i}`, path: `/child-path-${i}`, component: {} }] }))
             }
-            const routes: RouteConfig[] = [{ name: 'root-route-1', path: '/root-path-1' }, { name: 'root-route-2', path: '/root-path-1' }]
+            const routes: RouteRecordRaw[] = [
+                { name: 'root-route-1', path: '/root-path-1', component: {} },
+                { name: 'root-route-2', path: '/root-path-1', component: {} }
+            ]
             const node = new RouteNode({ routes, children })
             const output = [...node];
 
-            expect(output).toContainEqual({ meta: {}, name: 'root-route-1', path: '/root-path-1' })
-            expect(output).toContainEqual({ meta: {}, name: 'root-route-2', path: '/root-path-1' })
-            expect(output).toContainEqual({ meta: {}, name: `child-route-0`, path: `/child-path-0` })
-            expect(output).toContainEqual({ meta: {}, name: `child-route-1`, path: `/child-path-1` })
-            expect(output).toContainEqual({ meta: {}, name: `child-route-2`, path: `/child-path-2` })
+            expect(output).toContainEqual({ meta: {}, name: 'root-route-1', path: '/root-path-1', component: {} })
+            expect(output).toContainEqual({ meta: {}, name: 'root-route-2', path: '/root-path-1', component: {} })
+            expect(output).toContainEqual({ meta: {}, name: `child-route-0`, path: `/child-path-0`, component: {} })
+            expect(output).toContainEqual({ meta: {}, name: `child-route-1`, path: `/child-path-1`, component: {} })
+            expect(output).toContainEqual({ meta: {}, name: `child-route-2`, path: `/child-path-2`, component: {} })
         })
 
         describe('shared data is merged and', () => {

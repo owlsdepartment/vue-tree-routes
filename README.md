@@ -17,8 +17,8 @@ Vue | Vue Router | Vue Tree Routes
 ^3.0.0 | ^4.0.0 | ^2.0.0
 ^2.6.0 | ^3.1.6 | ^1.1.1
 
-If you're looking for older `README.md`:
- - [1.1.1](https://github.com/owlsdepartment/vue-tree-routes/blob/33da77707f2d004ad77c283778a189a5df510ca2/README.md)
+If you're looking for `README.md` for v2:
+ - [2.0.2](https://github.com/owlsdepartment/vue-tree-routes/blob/master/README.md)
 
 ## Motivations
 

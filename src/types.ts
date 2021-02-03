@@ -1,9 +1,9 @@
-import { RouteRecordRaw as VueRouteRecord } from 'vue-router'
+import { RouteConfig as VueRouteConfig } from 'vue-router'
 import { OverrideProps } from './helpers/types'
 
 export interface RouteDefinition {
     shared?: SharedData;
-    routes?: RouteRecord[];
+    routes?: RouteConfig[];
     children?: RouteDefinition[];
 }
 
@@ -12,7 +12,7 @@ export interface SharedData {
     meta?: Meta;
 }
 
-export type RouteRecord = OverrideProps<VueRouteRecord, { meta?: Meta; }>
+export type RouteConfig = OverrideProps<VueRouteConfig, { meta?: Meta; }>
 
 export interface Meta extends _Meta {
     [key: string]: any;

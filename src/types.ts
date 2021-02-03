@@ -1,4 +1,5 @@
 import { RouteRecordRaw as VueRouteRecord } from 'vue-router'
+import { OverrideProps } from './helpers/types'
 
 export interface RouteDefinition {
     shared?: SharedData;
@@ -11,7 +12,7 @@ export interface SharedData {
     meta?: Meta;
 }
 
-export type RouteRecord = { meta?: Meta; } & VueRouteRecord
+export type RouteRecord = OverrideProps<VueRouteRecord, { meta?: Meta; }>
 
 export interface Meta extends _Meta {
     [key: string]: any;

@@ -57,9 +57,13 @@ function applyNewPath(route: RouteRecord, basePath?: string): void {
     }
 }
 
-function applyNewMeta(route: RouteRecord, meta?: Meta): void {
+function applyNewMeta(route: RouteRecord, meta: Meta = {}): void {
     if (route.meta === undefined) {
         route.meta = { ...meta };
+    }
+
+    if (Array.isArray(route.children)) {
+        route.children?.forEach(child => applyNewMeta(child, meta))
     }
 }
 

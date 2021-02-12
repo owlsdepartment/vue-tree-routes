@@ -3,11 +3,11 @@ Small library to write Vue routes definition in a tree structure.
 
 To add library to project
 ```properties
-npm install --save @owlsdepartment/vuex-typed
+npm install --save @owlsdepartment/vue-tree-routes
 
 # or if you use yarn
 
-yarn add @owlsdepartment/vuex-typed
+yarn add @owlsdepartment/vue-tree-routes
 ```
 
 ## Versioning

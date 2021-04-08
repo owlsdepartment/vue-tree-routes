@@ -141,17 +141,16 @@ const router = new Router({
 })
 ```
 
-### Overriding `Meta interface` (since v1.0.4)
+### Overriding `Meta interface`
 
-As mentioned earlier, if you are using TypeScript, you can define some project-specific fields, that are expected in `meta`, by using TypeScript module declaration:
+As mentioned earlier, if you are using TypeScript, you can define some project-specific fields, that are expected in `meta`, by using TypeScript module declaration. This is the same way, as suggested by `VueRouter`.
 
 ```typescript
-import { _Meta } from "@owlsdepartment/vue-tree-routes/dist/types/types";
-
-declare module "@owlsdepartment/vue-tree-routes/dist/types/types" {
-    export interface _Meta {
-        // your meta declaration
-    }
+declare module 'vue-router' {
+	interface RouteMeta {
+        // insert your meta specific fields here
+		requireAuth?: boolean;
+	}
 }
 ```
 

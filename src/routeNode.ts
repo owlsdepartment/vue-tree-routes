@@ -1,4 +1,5 @@
-import { RouteDefinition, RouteRecord, SharedData, Meta } from './types'
+import { RouteMeta } from 'vue-router';
+import { RouteDefinition, RouteRecord, SharedData } from './types'
 import { isString } from './helpers'
 
 export interface RouteNodeParams {
@@ -57,7 +58,7 @@ function applyNewPath(route: RouteRecord, basePath?: string): void {
     }
 }
 
-function applyNewMeta(route: RouteRecord, meta: Meta = {}): void {
+function applyNewMeta(route: RouteRecord, meta: RouteMeta = {}): void {
     if (route.meta === undefined) {
         route.meta = { ...meta };
     }
